@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-fluid">
   <h1>Beer</h1>
   <ul [class]="updatePour(beer)" *ngFor = "let beer of beers">
     <h3>{{beer.name}}</h3><button (click)="pourPint(beer)">Pour</button><button (click)="editBeer(beer)">Edit</button>
@@ -7,10 +7,17 @@
     <li>Price: ${{beer.price}}</li>
     <li>Pints Remaining: {{beer.keg}}</li>
   </ul>
+  <button type="button" name="button">Add new beer</button>
+
   <div *ngIf="selectedBeer">
-    <form class="" action="index.html" method="post">
-      <label for="keg"></label>
-    </form>
-
-
+    <label>Name</label>
+    <input [(ngModel)]="selectedBeer.name"><br>
+    <label>Brewery</label>
+    <input [(ngModel)]="selectedBeer.brewery" [value]="brewery"><br>
+    <label>ABV</label>
+    <input [(ngModel)]="selectedBeer.abv" [value]="abv"><br>
+    <label>Price</label>
+    <input [(ngModel)]="selectedBeer.price" [value]="price">
+    <button (click)="endUpdate()">Done</button>
+  </div>
 </div>

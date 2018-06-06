@@ -7,7 +7,7 @@ import { Beer } from './models/beer.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  name: string = 'Beer';
+  // name: string = 'Beer';
 
   beers: Beer[]=[
     new Beer('IceHouse', 'Miller', 4.62, 1.2),
@@ -15,7 +15,7 @@ export class AppComponent {
     new Beer('Fremont IPA', 'Fremont', 7.1, 2.7)
   ]
   lowKegs: Beer[] = [];
-  selectedBeer: null;
+  selectedBeer = null;
 
   pourPint(clickedBeer){
     if (0 >= clickedBeer.keg) {
@@ -28,14 +28,18 @@ export class AppComponent {
     }
   }
   updatePour(pourAmt){
-     if (pourAmt.keg <= 10){
+    if (pourAmt.keg <= 10){
       console.log("your keg is low on beer");
       return "bg-warning";
     }
   }
 
-  editBeer(){
-    // this.beers = [];
-    alert("edit" + this.beers[0]);
+  editBeer(clickedBeer){
+    this.selectedBeer = clickedBeer;
+
   }
+  endUpdate() {
+    this.selectedBeer = null;
+  }
+
 }
