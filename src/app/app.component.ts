@@ -42,6 +42,7 @@ export class AppComponent {
     this.selectedBeer = null;
   }
 
+  //color code abv text
   abvColor(abv){
     if (abv<5){
       return "text-success";
@@ -52,6 +53,7 @@ export class AppComponent {
     }
   }
 
+  //color code price text
   priceColor(price){
     if (price<5){
       return "text-success";
@@ -60,5 +62,16 @@ export class AppComponent {
     } else {
       return "text-danger";
     }
+  }
+
+  newBeer = null;
+  // addToBeer: Beer[] = [];
+  addBeer(addedBeer){
+    this.newBeer = "l";
+    // this.addToBeer.push(addedBeer);
+  }
+  updateAdd() {
+
+    this.newBeer = null;
   }
 }

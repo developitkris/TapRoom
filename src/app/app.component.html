@@ -20,4 +20,21 @@
     <input [(ngModel)]="selectedBeer.price" [value]="price">
     <button (click)="endUpdate()">Done</button>
   </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div *ngIf="newBeer">
+    <label>Name:</label>
+    <input [(ngModel)]="newBeer.name"><br>
+    <label>Brewery:</label>
+    <input [(ngModel)]="newBeer.brewery" [value]="brewery"><br>
+    <label>ABV:</label>
+    <input [(ngModel)]="newBeer.abv" [value]="abv"><br>
+    <label>Price:</label>
+    <input [(ngModel)]="newBeer.price" [value]="price"><br>
+    <button (click)="updateAdd()">Add Beer</button>
+  </div>
 </div>
