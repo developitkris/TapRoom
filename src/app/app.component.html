@@ -3,20 +3,20 @@
   <ul [class]="updatePour(beer)" *ngFor = "let beer of beers">
     <h3>{{beer.name}}</h3><button (click)="pourPint(beer)">Pour</button><button (click)="editBeer(beer)">Edit</button>
     <li>{{beer.brewery}}</li>
-    <li>ABV: {{beer.abv}}%</li>
-    <li>Price: ${{beer.price}}</li>
+    <li [class]="abvColor(beer.abv)">ABV: {{beer.abv}}%</li>
+    <li [class]="priceColor(beer.price)">Price: ${{beer.price}}</li>
     <li>Pints Remaining: {{beer.keg}}</li>
   </ul>
-  <button type="button" name="button">Add new beer</button>
+  <button (click)="addBeer()">Add new beer</button>
 
   <div *ngIf="selectedBeer">
-    <label>Name</label>
+    <label>Name:</label>
     <input [(ngModel)]="selectedBeer.name"><br>
-    <label>Brewery</label>
+    <label>Brewery:</label>
     <input [(ngModel)]="selectedBeer.brewery" [value]="brewery"><br>
-    <label>ABV</label>
+    <label>ABV:</label>
     <input [(ngModel)]="selectedBeer.abv" [value]="abv"><br>
-    <label>Price</label>
+    <label>Price:</label>
     <input [(ngModel)]="selectedBeer.price" [value]="price">
     <button (click)="endUpdate()">Done</button>
   </div>

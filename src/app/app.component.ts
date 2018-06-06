@@ -10,9 +10,9 @@ export class AppComponent {
   // name: string = 'Beer';
 
   beers: Beer[]=[
-    new Beer('IceHouse', 'Miller', 4.62, 1.2),
-    new Beer('Sea Witch', 'Sea Pine', 5.3, 2.9),
-    new Beer('Fremont IPA', 'Fremont', 7.1, 2.7)
+    new Beer('IceHouse', 'Miller', 4.62, 4.2),
+    new Beer('Sea Witch', 'Sea Pine', 5.3, 6.9),
+    new Beer('Fremont IPA', 'Fremont', 7.1, 8.7)
   ]
   lowKegs: Beer[] = [];
   selectedBeer = null;
@@ -42,4 +42,23 @@ export class AppComponent {
     this.selectedBeer = null;
   }
 
+  abvColor(abv){
+    if (abv<5){
+      return "text-success";
+    } else if (abv<6){
+      return "text-warning";
+    } else {
+      return "text-danger";
+    }
+  }
+
+  priceColor(price){
+    if (price<5){
+      return "text-success";
+    } else if (price<6.5){
+      return "text-warning";
+    } else {
+      return "text-danger";
+    }
+  }
 }
